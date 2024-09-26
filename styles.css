@@ -1,0 +1,247 @@
+/* ------Utility Section ------  */
+:root{
+    --bgcolor:#fff;
+    --primaryColor:#000;
+    --secondaryColor: #6c5f5b;
+    --accentColor:#333;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    font-family: "Rubik", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
+  }
+  /* ------ Header Section ------  */
+  header{
+    margin-top: 20vh;
+  }
+  
+  /* ------ Main Section ------  */
+  #main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    /* margin-top: 150px; */
+  }
+  #info-container{
+    display: flex;
+    width: 50vw;
+    flex-shrink: 0;
+    /* justify-content: space-between; */
+    gap: 550px;
+    /* padding-right: 50px; */
+    /* align-items: center; */
+    /* padding-bottom: 20px; */
+    /* padding-right: 20px; */
+    /* padding-left: 20px; */
+  }
+  #timer{
+    font-size: 1.3em;
+    font-weight: 500; 
+    display: flex;
+    margin-right: 80px;
+    flex-shrink: 0;
+  }
+  
+  @media (max-width:540px) {
+    #timer{
+      margin-right: -30px;
+    }
+  }
+
+  #info-right{
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    align-items: center;
+    /* margin-right: 2em; */
+  }
+  #game{
+    font-size: 35px;
+    /* padding: 1.5em; */
+    /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); */
+    width: 70vw;
+    position: relative;
+    /* top: 100px; */
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none;
+    height: 100vh;
+  }
+  #game:focus{
+    outline: 0;
+  }
+  #game:focus #words{
+    filter: blur(0);
+    opacity: 1;
+  }
+  #game:focus #cursor{
+    display: block;
+  }
+  #game:focus #focus-error{
+    display: none;
+  }
+  @keyframes blink{
+    0%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+ 
+  #cursor{
+    display: none;
+    width: 2px;
+    height: 50px;
+    background-color: var(--primaryColor);
+    position: fixed;
+    animation: blink 1s infinite;
+  }
+  #words{
+    filter: blur(5px);
+    opacity: 0.35;
+    color: var(--secondaryColor);
+    position: relative;
+  }
+  .correct{
+    color: var(--primaryColor);
+  }
+  .incorrect{
+    text-decoration: underline;
+    color: rgb(255, 0, 0);
+  }
+  .extra{
+    color:#f55;
+  }
+
+  #focus-error{
+    position: absolute;
+    /* top: 300px; */
+    text-align: center;
+    padding-top: 70px;
+    inset: 0;
+    /* inset: 2em 50px 10px; */
+  }
+
+  #reset-button{
+    font-weight: bolder;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 2em; */
+    padding: 7px;
+    width: 200px;
+    border-radius: 7px;
+    background-color: inherit;
+    border:1px solid rgba(0, 0, 0, 0.3);
+    transition: all 0.15s ease;
+  }
+  #reset-button:hover{
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+
+  .dropdown{
+    font-weight: bolder;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 2em; */
+    padding: 9px;
+    width: 105px;
+    border-radius: 7px;
+    background-color: inherit;
+    border:1px solid rgba(0, 0, 0, 0.3);
+    transition: all 0.15s ease;
+    /* padding: 7px;
+    border-radius: 7px; */
+  }
+  .dropdown:hover{
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  
+  /* ------ Functionality Section ------  */
+  div#game{
+    text-align: justify;
+    line-height: 75px;
+    height: 245px;
+    overflow:hidden;
+  }
+  div.word{
+    display: inline-block;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0px 5px;
+  }
+
+/*-----Timer Functionality Section-------*/
+
+  #game.over #words{
+    opacity: 50%;
+    filter: blur(0px);
+  }
+
+  #game.over:focus #cursor{
+    display: none;
+  }
+
+  #game.over #focus-error{
+    display: none;
+  }
+
+/* this the footer design */
+
+.footer{
+  display: flex;
+  /* border: 1px solid black; */
+  align-items: center;
+  justify-content: space-around;
+  /* margin-top: 270px; */
+}
+.footer-left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: bottom;
+  gap: 40px;
+  margin-top: 70px;
+  /* margin-left: 0px; */
+}
+.footer-left a{
+  color: var(--secondaryColor);
+  text-decoration: none;
+  font-size: 18px;
+  /* font-weight: bolder; */
+}
+.div1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.mail-icon, .github, .developers{
+  width: 30px;
+  height: 22px;
+}
+.key-tips{
+  color: var(--secondaryColor);
+  /* padding-bottom: 150px; */
+  margin-top: 130px;
+  text-align: center;
+  /* border: 1px solid black; */
+  height: 40px;
+}
+.tip1{
+  background-color: grey;
+  padding: 3px;
+  border-radius: 5px;
+  margin-right: 4px;
+}
