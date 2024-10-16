@@ -39,54 +39,90 @@ function newGame(){
   window.timer = null;
 }
 
-// // Event Listener for Timer change for the typing test
-// document.querySelector('.collapse.navbar-collapse').addEventListener('click', (event) => {
-//   // Check if the clicked element is a timer link
-//   if (event.target.matches('a[id^="currentTestTimer"]')) {
-//     const targetId = event.target.id;
-//     let timerValue;
+// // Get the timer display element
+// const timerDisplay = document.getElementById('timer');
 
-//     // Update the timer display based on the clicked element
-//     switch (targetId) {
-//       case 'currentTestTimer15':
-//         timerValue = 15000; // 15 seconds in milliseconds
-//         document.getElementById('timer').innerHTML = `15s`;
-//         break;
-//       case 'currentTestTimer30':
-//         timerValue = 30000; // 30 seconds in milliseconds
-//         document.getElementById('timer').innerHTML = `30s`;
-//         break;
-//       case 'currentTestTimer60':
-//         timerValue = 60000; // 60 seconds in milliseconds
-//         document.getElementById('timer').innerHTML = `60s`;
-//         break;
-//       default:
-//         document.getElementById('timer').innerHTML = `Select a timer`;
-//         return; // Exit if no valid timer is selected
-//     }
+// // Get the timer interval links
+// const timerIntervals = document.querySelectorAll('.nav-link.active');
 
-//     // Start a new game with the selected timer
-//     newGame(timerValue);
-//   }
+// // Add an event listener to each timer interval link
+// timerIntervals.forEach((interval) => {
+//   interval.addEventListener('click', (e) => {
+//     // Get the selected time interval
+//     const selectedInterval = e.target.getAttribute('date-time');
+
+//     // Update the timer display
+//     timerDisplay.innerText = `Time: ${selectedInterval / 1000} seconds`;
+//   });
 // });
 
-// // Function to start a new game
-// function newGame(timerValue) {
-//   console.log("New game started with timer: ", timerValue);
-//   // function newGame(){
-//   document.getElementById('words').innerHTML='';
-//   for(let i=0;i<300;i++){
-//     document.getElementById('words').innerHTML += formatWord(randomWord());
-//   }
-//   addClass(document.querySelector(".word"),'current');
-//   addClass(document.querySelector(".letter"),'current');
-//   document.getElementById('timer').innerHTML = (gameTime/1000) + '';
-//   window.timer = null;
-// }
-// // }
+
+// Get the timer display element
+const timerDisplay = document.getElementById('timer');
+
+// Get the timer interval links
+const timerIntervals = document.querySelectorAll('.nav-link.active');
+
+// Initialize the selected time interval
+let selectedInterval = 0;
+let timerRunning = false;
+let startTime = 0;
+let typedWords = 0;
+
+// Add an event listener to each timer interval link
+timerIntervals.forEach((interval) => {
+  interval.addEventListener('click', (e) => {
+    // Get the selected time interval
+    selectedInterval = parseInt(e.target.getAttribute('date-time'));
+
+    // Update the timer display
+    timerDisplay.innerText = `${selectedInterval / 1000} seconds`;
+  });
+});
+
+// Add an event listener to the document to listen for key presses
+document.addEventListener('keydown', (e) => {
+  // If a key is pressed and the selected interval is greater than 0 and the timer is not running
+  if (selectedInterval > 0 && !timerRunning) {
+    // Start the countdown
+    countdown(selectedInterval);
+    timerRunning = true;
+    startTime = new Date().getTime();
+  }
+});
+
+// Add an event listener to the document to listen for key presses
+document.addEventListener('keydown', (e) => {
+  // If a key is pressed and the selected interval is greater than 0 and the timer is running
+  if (selectedInterval > 0 && timerRunning) {
+    // Increment the typed words count
+    typedWords++;
+  }
+});
+
+// Countdown function
+function countdown(time) {
+  let intervalId = setInterval(() => {
+    time -= 1000; // decrement by 1 second
+    timerDisplay.innerText = `${time / 1000} seconds`;
+
+    if (time <= 0) {
+      clearInterval(intervalId);
+      calculateWPM();
+    }
+  }, 1000); // update every 1 second
+}
+
+// Calculate WPM function
+function calculateWPM() {
+  const endTime = new Date().getTime();
+  const elapsedTime = (endTime - startTime) / 1000 / 60; // convert to minutes
+  const wpm = (typedWords / elapsedTime) * 60;
+  timerDisplay.innerText = `${wpm.toFixed(2)} WPM`;
+}
 
 let timerValue = gameTime; // Default to 30 seconds
-const timerDisplay = document.getElementById('timer');
+// const timerDisplay = document.getElementById('timer');
 
 document.querySelectorAll('.nav-link[data-time]').forEach(link => {
   link.addEventListener('click', (e) => {
@@ -97,18 +133,6 @@ document.querySelectorAll('.nav-link[data-time]').forEach(link => {
   });
 });
 
-function startTimer() {
-  clearInterval(window.timer);
-  window.timer = setInterval(() => {
-    if (timerValue <= 0) {
-      clearInterval(window.timer);
-      alert("Time's up!");
-      return;
-    }
-    timerValue -= 1000; // Decrease timer by 1 second
-    timerDisplay.innerHTML = timerValue / 1000; // Update display
-  }, 1000);
-}
 
 // Event listener for dropdown
 document.getElementById('dropdown').addEventListener('change', (event) => {
@@ -179,6 +203,7 @@ document.getElementById('game').addEventListener('keydown', ev =>{
       clickSound.currentTime = 0; // Reset the audio to the start
       clickSound.play(); // Play the click sound
   }
+
 
   if(document.querySelector('#game.over')){
     return;
