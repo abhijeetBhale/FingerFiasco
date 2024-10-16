@@ -97,8 +97,8 @@ header{
 
 #cursor{
   display: none;
-  width: 2px;
-  height: 50px;
+  width: 1px;
+  height: 45px;
   background-color: var(--primaryColor);
   position: fixed;
   animation: blink 1s infinite;
@@ -112,6 +112,7 @@ header{
 .correct{
   color: var(--primaryColor);
 }
+
 .incorrect{
   text-decoration: underline;
   color: rgb(255, 0, 0);
@@ -142,6 +143,19 @@ header{
   background-color: inherit;
   border:1px solid rgba(0, 0, 0, 0.3);
   transition: all 0.15s ease;
+}
+/* Light mode styles */
+#reset-button {
+  border: 1px solid #333; /* dark gray border */
+  color: #333; /* dark gray text */
+  background-color: #fff; /* white background */
+}
+
+/* Dark mode styles */
+.dark-mode #reset-button {
+  background-color: #444; /* dark dropdown background color */
+  border: 1px solid transparent; /* white border */
+  color: #fff; /* white text */
 }
 #reset-button:hover{
   box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
@@ -212,7 +226,8 @@ align-items: center;
 justify-content: center;
 vertical-align: bottom;
 gap: 40px;
-margin-top: 70px;
+margin-top: 30px;
+/* margin-bottom: 20px; */
 /* margin-left: 0px; */
 }
 .footer-left a{
@@ -244,4 +259,225 @@ background-color: grey;
 padding: 3px;
 border-radius: 5px;
 margin-right: 4px;
+}
+
+
+.switch {
+  /* Variables */
+ --switch_width: 2em;
+ --switch_height: 1em;
+ --thumb_color: #e8e8e8;
+ --track_color: #e8e8e8;
+ --track_active_color: #888;
+ --outline_color: #000;
+ font-size: 17px;
+ position: relative;
+ top: 17px;
+ left: 15px;
+ display: inline-block;
+ width: var(--switch_width);
+ height: var(--switch_height);
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+ opacity: 0;
+ width: 0;
+ height: 0;
+}
+
+/* The slider */
+.slider {
+ box-sizing: border-box;
+ border: 2px solid var(--outline_color);
+ position: absolute;
+ cursor: pointer;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background-color: var(--track_color);
+ transition: .15s;
+ border-radius: var(--switch_height);
+}
+
+.slider:before {
+ box-sizing: border-box;
+ position: absolute;
+ content: "";
+ height: var(--switch_height);
+ width: var(--switch_height);
+ border: 2px solid var(--outline_color);
+ border-radius: 100%;
+ left: -2px;
+ bottom: -2px;
+ background-color: var(--thumb_color);
+ transform: translateY(-0.2em);
+ box-shadow: 0 0.2em 0 var(--outline_color);
+ transition: .15s;
+}
+
+input:checked + .slider {
+ background-color: var(--track_active_color);
+}
+
+input:focus-visible + .slider {
+ box-shadow: 0 0 0 2px var(--track_active_color);
+}
+
+/* Raise thumb when hovered */
+input:hover + .slider:before {
+ transform: translateY(-0.3em);
+ box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+input:checked + .slider:before {
+ transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.2em);
+}
+
+/* Raise thumb when hovered & checked */
+input:hover:checked + .slider:before {
+ transform: translateX(calc(var(--switch_width) - var(--switch_height))) translateY(-0.3em);
+ box-shadow: 0 0.3em 0 var(--outline_color);
+}
+
+.dark-mode {
+  background-color: #333; /* dark background color */
+  color: #fff; /* white text color */
+}
+
+.dark-mode .navbar {
+  background-color: #444; /* dark navbar background color */
+  border-color: #555; /* dark navbar border color */
+}
+
+.dark-mode .navbar-nav a {
+  color: #fff; /* white navbar link color */
+}
+
+.dark-mode .main-content {
+  background-color: #444; /* dark main content background color */
+}
+
+.dark-mode .footer {
+  background-color: #333; /* dark footer background color */
+  color: #fff; /* white footer text color */
+}
+
+.dark-mode .footer a {
+  color: #fff; /* white footer link color */
+}
+
+.dark-mode .footer {
+  background-color: #333; /* dark footer background color */
+}
+
+.dark-mode .footer a, .dark-mode .footer span, .dark-mode .footer p {
+  color: #fff; /* white footer text color */
+}
+
+.dark-mode .dropdown {
+  background-color: #444; /* dark dropdown background color */
+  border-color: #555; /* dark dropdown border color */
+  color: #fff; /* white dropdown text color */
+}
+
+.dark-mode .dropdown a {
+  color: #fff; /* white dropdown link color */
+}
+
+.dark-mode .reset-button {
+  background-color: #444; /* dark reset button background color */
+  border-color: #555; /* dark reset button border color */
+  color: #fff; /* white reset button text color */
+}
+
+.dark-mode .timer {
+  color: #fff; /* white timer text color */
+}
+
+.dark-mode .wpm {
+  color: #fff; /* white wpm text color */
+}
+
+/* Add more styles as needed for other elements */
+
+/* Light mode styles */
+.footer-left a {
+  color: var(--secondaryColor); /* dark gray text */
+}
+
+/* Dark mode styles */
+.dark-mode .footer-left a {
+  color: #fff; /* white text */
+}
+
+.dark-mode .footer {
+  background-color: #333; /* dark footer background color */
+  color: #fff; /* white footer text color */
+}
+
+.dark-mode .footer a {
+  color: #fff; /* white footer link color */
+}
+
+.footer {
+  color: #000; /* black text in light mode */
+}
+
+/* Dark mode styles */
+.dark-mode .footer-left a {
+  color: #fff; /* white text */
+}
+
+.dark-mode .footer {
+  background-color: #333; /* dark footer background color */
+  color: #fff; /* white footer text color */
+}
+
+.dark-mode .tip1 {
+  color: #fff; /* white text */
+}
+
+.dark-mode .test-reset {
+  color: #fff; /* white text */
+}
+
+/* Dark mode styles */
+.dark-mode #cursor {
+  background-color: #fff; /* white cursor in dark mode */
+}
+
+/* Light mode styles */
+.navbar {
+  background-color: #333; /* dark navbar background color */
+}
+
+.navbar-brand {
+  background-color: #333; /* match navbar background color */
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+/* Dark mode styles */
+.dark-mode .navbar {
+  background-color: #212529; /* dark navbar background color in dark mode */
+}
+
+.dark-mode .navbar-brand {
+  background-color: #212529; /* match navbar background color in dark mode */
+}
+
+.navbar {
+  background-color: #333; /* navbar background color */
+}
+
+.navbar-brand {
+  background-color: inherit; /* inherit navbar background color */
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.dark-mode .navbar {
+  background-color: #333; /* same navbar background color in dark mode */
 }

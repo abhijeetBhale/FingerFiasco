@@ -39,22 +39,39 @@ function newGame(){
   window.timer = null;
 }
 
-// // Get the timer display element
-// const timerDisplay = document.getElementById('timer');
+//this is the code for toggle the website to dark and light mode
+const toggleButton = document.querySelector('.switch input[type="checkbox"]');
+const body = document.body;
 
-// // Get the timer interval links
-// const timerIntervals = document.querySelectorAll('.nav-link.active');
+toggleButton.addEventListener('change', () => {
+  if (toggleButton.checked) {
+    body.classList.add('dark-mode');
+  } else {
+    body.classList.remove('dark-mode');
+  }
+});
 
-// // Add an event listener to each timer interval link
-// timerIntervals.forEach((interval) => {
-//   interval.addEventListener('click', (e) => {
-//     // Get the selected time interval
-//     const selectedInterval = e.target.getAttribute('date-time');
+//this is the code for when the  user clicks the refresh then the website remains the same 
+// Get the current mode from local storage
+let currentMode = localStorage.getItem('mode');
+if (currentMode === 'dark') {
+  body.classList.add('dark-mode');
+  toggleButton.checked = true;
+} else {
+  body.classList.remove('dark-mode');
+  toggleButton.checked = false;
+}
 
-//     // Update the timer display
-//     timerDisplay.innerText = `Time: ${selectedInterval / 1000} seconds`;
-//   });
-// });
+toggleButton.addEventListener('change', () => {
+  if (toggleButton.checked) {
+    body.classList.add('dark-mode');
+    localStorage.setItem('mode', 'dark');
+  } else {
+    body.classList.remove('dark-mode');
+    localStorage.setItem('mode', 'light');
+  }
+});
+
 
 
 // Get the timer display element
@@ -316,4 +333,3 @@ document.getElementById('reset-button').addEventListener('click', () => {
 })
 
 newGame();
-
