@@ -170,7 +170,7 @@ header{
   align-items: center;
   /* height: 2em; */
   padding: 9px;
-  width: 105px;
+  width: 120px;
   border-radius: 7px;
   background-color: inherit;
   border:1px solid rgba(0, 0, 0, 0.3);
@@ -255,9 +255,10 @@ text-align: center;
 height: 40px;
 }
 .tip1{
-background-color: grey;
-padding: 3px;
-border-radius: 5px;
+background-color: yellow;
+padding: 5px;
+color:black;
+border-radius: 8px;
 margin-right: 4px;
 }
 
@@ -436,7 +437,7 @@ input:hover:checked + .slider:before {
 }
 
 .dark-mode .tip1 {
-  color: #fff; /* white text */
+  color: black; /* white text */
 }
 
 .dark-mode .test-reset {
@@ -480,4 +481,8 @@ input:hover:checked + .slider:before {
 
 .dark-mode .navbar {
   background-color: #333; /* same navbar background color in dark mode */
+}
+
+.container-md, .navbar mx-2 {
+  background-color: #212529; /* This is the default dark mode background color for Bootstrap navbar */
 }

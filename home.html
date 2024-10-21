@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <title>FingerFiasco</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark bordor-bottom border-body color-white font-monospace"
+      data-bs-theme="dark">
+      <div class="container-fluid">
+        <nav class="navbar mx-2" style="background-color: var(--bs-dark)">
+          <div class="container-md">
+            <a class="navbar-brand fs-2 fw-bolder" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                style="fill: rgb(255, 255, 255)" data-bs-theme="dark">
+                <path
+                  d="M21 5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm-8 2h2v2h-2V7zm0 4h2v2h-2v-2zM9 7h2v2H9V7zm0 4h2v2H9v-2zM5 7h2v2H5V7zm0 4h2v2H5v-2zm12 6H7v-2h10v2zm2-4h-2v-2h2v2zm0-4h-2V7h2v2z">
+                </path>
+              </svg>
+              Finger Fiasco
+            </a>
+          </div>
+        </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse mx-5" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-3 text-center">
+          <li class="nav-item fs-5 fw-bolder">
+            <a class="nav-link active" href="./home.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                viewBox="0 0 24 24" style="fill: rgb(255, 255, 255)">
+                <path
+                  d="m21.743 12.331-9-10c-.379-.422-1.107-.422-1.486 0l-9 10a.998.998 0 0 0-.17 1.076c.16.361.518.593.913.593h2v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-4h4v4a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7h2a.998.998 0 0 0 .743-1.669z">
+                </path>
+              </svg></a>
+          </li>
+          <li class="nav-item fs-5 fw-bolder">
+            <a class="nav-link active" href="./punctuation.html">@Punctuation</a>
+          </li>
+          <li class="nav-item fs-5 fw-bolder">
+            <a class="nav-link active" href="./number.html">#Number</a>
+          </li>
+          <li class="nav-item fs-5">
+            <span class="nav-link active">&#9679</span>
+          </li>
+          <li class="nav-item fs-5 fw-bolder">
+            <a class="nav-link active" href="#" date-time="15000" id="currentTestTimer15">15s</a>
+          </li>
+          <li class="nav-item fs-5 fw-bolder">
+            <a class="nav-link active" href="#" date-time="30000" id="currentTestTimer30">30s</a>
+          </li>
+          <li class="nav-item fs-5 fw-bolder">
+            <a class="nav-link active" href="#" date-time="60000" id="currentTestTimer60">60s</a>
+          </li>
+          <li>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </li>
+        </ul>
+        </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <div class="container-fluid">
+    <div id="main">
+      <div id=" container-md justify-content-between info-container">
+        <div class="row align-items-center gap-0 column-gap-5">
+          <div class="col">
+            <div id="timer">
+            </div>
+          </div>
+          <div class="col">
+            <div id="info-right">
+              <button id="reset-button">
+                New Game
+              </button>
+              <select id="dropdown" class="dropdown">
+                <option value="english">English</option>
+                <option value="english1">English1k</option>
+                <option value="english2">English2k</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="game" tabindex="0">
+        <div id="words"></div>
+        <div id="cursor"></div>
+        <div id="focus-error">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cursor-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
+          </svg>
+          Click here or press any key to focus
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="key-tips">
+    <span class="tip1">ctrl + R</span>
+    <span class="test-reset">- Reset Test</span>
+    <footer>
+      <div class="footer">
+      </div>
+      <div class="footer-left">
+        <div class="div1">
+          <a href="#"> <svg class="mail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              style="fill: rgba(0, 0, 0, 1)">
+              <path
+                d="M20 4H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm0 2v.511l-8 6.223-8-6.222V6h16zM4 18V9.044l7.386 5.745a.994.994 0 0 0 1.228 0L20 9.044 20.002 18H4z">
+              </path>
+            </svg>Contact</a>
+        </div>
+        <a href="https://github.com/abhijeetBhale/FingerFiasco" target="_blank"><svg class="github"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1)">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M12.026 2c-5.509 0-9.974 4.465-9.974 9.974 0 4.406 2.857 8.145 6.821 9.465.499.09.679-.217.679-.481 0-.237-.008-.865-.011-1.696-2.775.602-3.361-1.338-3.361-1.338-.452-1.152-1.107-1.459-1.107-1.459-.905-.619.069-.605.069-.605 1.002.07 1.527 1.028 1.527 1.028.89 1.524 2.336 1.084 2.902.829.091-.645.351-1.085.635-1.334-2.214-.251-4.542-1.107-4.542-4.93 0-1.087.389-1.979 1.024-2.675-.101-.253-.446-1.268.099-2.64 0 0 .837-.269 2.742 1.021a9.582 9.582 0 0 1 2.496-.336 9.554 9.554 0 0 1 2.496.336c1.906-1.291 2.742-1.021 2.742-1.021.545 1.372.203 2.387.099 2.64.64.696 1.024 1.587 1.024 2.675 0 3.833-2.33 4.675-4.552 4.922.355.308.675.916.675 1.846 0 1.334-.012 2.41-.012 2.737 0 .267.178.577.687.479C19.146 20.115 22 16.379 22 11.974 22 6.465 17.535 2 12.026 2z">
+            </path>
+          </svg>GitHub</a>
+        <a href="#"><svg class="developers" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            style="fill: rgba(0, 0, 0, 1)">
+            <path
+              d="m7.375 16.781 1.25-1.562L4.601 12l4.024-3.219-1.25-1.562-5 4a1 1 0 0 0 0 1.562l5 4zm9.25-9.562-1.25 1.562L19.399 12l-4.024 3.219 1.25 1.562 5-4a1 1 0 0 0 0-1.562l-5-4zm-1.649-4.003-4 18-1.953-.434 4-18z">
+            </path>
+          </svg>Developers</a>
+      </div>
+  </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
