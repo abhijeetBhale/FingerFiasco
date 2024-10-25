@@ -64,7 +64,6 @@ header{
   /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3); */
   width: 70vw;
   position: relative;
-  /* top: 100px; */
   -webkit-user-select: none;
   -ms-user-select: none; 
   user-select: none;
@@ -274,7 +273,7 @@ margin-right: 4px;
  font-size: 17px;
  position: relative;
  top: 17px;
- left: 15px;
+ left: 0px;
  display: inline-block;
  width: var(--switch_width);
  height: var(--switch_height);
