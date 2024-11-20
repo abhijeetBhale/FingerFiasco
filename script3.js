@@ -166,33 +166,33 @@ function displayWords() {
   });
 }
 
-document.getElementById('dropdown').addEventListener('change', (event) => {
-  const selectedValue = event.target.value;
+// document.getElementById('dropdown').addEventListener('change', (event) => {
+//   const selectedValue = event.target.value;
 
-  // Update currentWords based on the selected value
-  switch (selectedValue) {
-    case 'english':
-      currentWords = words;
-      break;
-    case 'english1':
-      currentWords = english1Words;
-      break;
-    case 'english2':
-      currentWords = english2Words;
-      break;
-    default:
-      currentWords = words; // Fallback to default
-  }
+//   // Update currentWords based on the selected value
+//   switch (selectedValue) {
+//     case 'english':
+//       currentWords = words;
+//       break;
+//     case 'english1':
+//       currentWords = english1Words;
+//       break;
+//     case 'english2':
+//       currentWords = english2Words;
+//       break;
+//     default:
+//       currentWords = words; // Fallback to default
+//   }
   
-  // Display the words based on the selected value
-  displayWords();
+//   // Display the words based on the selected value
+//   displayWords();
 
-  // Restart the game with new words
-  newGame();
-  // Reset the timer
-  timerValue = gameTime;
-  document.getElementById('timer').innerHTML = `${timerValue / 1000}`;
-});
+//   // Restart the game with new words
+//   newGame();
+//   // Reset the timer
+//   timerValue = gameTime;
+//   document.getElementById('timer').innerHTML = `${timerValue / 1000}`;
+// });
 
 // Initial display of words
 displayWords();

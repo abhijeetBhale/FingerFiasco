@@ -1,3 +1,5 @@
+
+
 const words = 'the and is it to in a of you that for with on are as was but or by not at from have be this which can will if up out one all about there when make know time who where how your come go see get use what like day work way many such her him me us them a lot another always ask baby back ball bank bat beach bed big bird blue book box boy bread brother brown bus cake call can car cat chair children city class clean cold come cookie cup dark day desk dirty dog door down eat egg end fast find floor flower fly food foot friend full game garden girl give good green ground happy hat head help high home hot house how if inside jump keep kind kitchen know laugh letter light like little live long look make man may mean milk mom morning mother move name near never new night no not now of old on open orange other our out over paper party people pick place play put quiet red remember run sad same school sea see sell small some sun take talk tea tell that the them then there they think this those three time to too top town tree truck try under us very walk water well when where which white who why will wind with woman word work year yes you your'.split(' ');
 
 let currentWords = words;
@@ -166,33 +168,33 @@ function displayWords() {
   });
 }
 
-document.getElementById('dropdown').addEventListener('change', (event) => {
-  const selectedValue = event.target.value;
+// document.getElementById('dropdown').addEventListener('change', (event) => {
+//   const selectedValue = event.target.value;
 
-  // Update currentWords based on the selected value
-  switch (selectedValue) {
-    case 'english':
-      currentWords = words;
-      break;
-    case 'english1':
-      currentWords = english1Words;
-      break;
-    case 'english2':
-      currentWords = english2Words;
-      break;
-    default:
-      currentWords = words; // Fallback to default
-  }
+//   // Update currentWords based on the selected value
+//   switch (selectedValue) {
+//     case 'english':
+//       currentWords = words;
+//       break;
+//     case 'english1':
+//       currentWords = english1Words;
+//       break;
+//     case 'english2':
+//       currentWords = english2Words;
+//       break;
+//     default:
+//       currentWords = words; // Fallback to default
+//   }
   
-  // Display the words based on the selected value
-  displayWords();
+//   // Display the words based on the selected value
+//   displayWords();
 
-  // Restart the game with new words
-  newGame();
-  // Reset the timer
-  timerValue = gameTime;
-  document.getElementById('timer').innerHTML = `${timerValue / 1000}`;
-});
+//   // Restart the game with new words
+//   newGame();
+//   // Reset the timer
+//   timerValue = gameTime;
+//   document.getElementById('timer').innerHTML = `${timerValue / 1000}`;
+// });
 
 // Initial display of words
 displayWords();
